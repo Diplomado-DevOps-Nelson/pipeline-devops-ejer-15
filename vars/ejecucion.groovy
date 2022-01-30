@@ -11,6 +11,7 @@ def call(){
 		agent any
 		
 		environment {
+			sh 'env'
 		    STAGE = ''
 		}
 
