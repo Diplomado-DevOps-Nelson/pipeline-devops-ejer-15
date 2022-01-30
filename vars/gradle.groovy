@@ -19,7 +19,7 @@ def call(String pipelineType){
 			
 		stage('sonar') {
 		//STAGE = env.STAGE_NAME
-		figlet "Stage: ${env.STAGE_NAME}"
+		//figlet "Stage: ${env.STAGE_NAME}"
 			steps {
 				script {
 					def scannerHome = tool 'sonar-scanner';
