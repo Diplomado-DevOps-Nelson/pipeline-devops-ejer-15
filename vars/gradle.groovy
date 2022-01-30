@@ -11,29 +11,25 @@ def call(String pipelineType){
 	if (pipelineType == 'CI'){
 		figlet 'Integracion Continua'
 
-		stage('Build & Unit Test'){
+		stage('build & unit test'){
 			STAGE = env.STAGE_NAME
 			figlet "Stage: ${env.STAGE_NAME}"
 			bat "./gradlew.bat clean build"
 		}
-
-		stage('Sonar'){
-			STAGE = env.STAGE_NAME
-			figlet "Stage: ${env.STAGE_NAME}"
 			
-			stage('SonarQube') {
-				steps {
-					script {
-						def scannerHome = tool 'sonar-scanner';
-						withSonarQubeEnv('sonarqube-server') {
-						  bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.sources=src -Dsonar.java.binaries=build"
-						}
+		stage('SonarQube') {
+		STAGE = env.STAGE_NAME
+		figlet "Stage: ${env.STAGE_NAME}"
+			steps {
+				script {
+					def scannerHome = tool 'sonar-scanner';
+					withSonarQubeEnv('sonarqube-server') {
+					  bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.sources=src -Dsonar.java.binaries=build"
 					}
 				}
 			}
-						
 		}
-
+						
 		stage('Run'){
 			STAGE = env.STAGE_NAME
 			figlet "Stage: ${env.STAGE_NAME}"
