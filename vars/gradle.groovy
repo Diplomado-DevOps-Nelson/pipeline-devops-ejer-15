@@ -17,7 +17,7 @@ def call(String pipelineType){
 			bat "./gradlew.bat clean build"
 		}
 			
-		stage('SonarQube') {
+		stage('sonar') {
 		STAGE = env.STAGE_NAME
 		figlet "Stage: ${env.STAGE_NAME}"
 			steps {
