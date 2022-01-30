@@ -14,6 +14,7 @@ def call(String pipelineType){
 		stage('Build & Unit Test'){
 			STAGE = env.STAGE_NAME
 			figlet "Stage: ${env.STAGE_NAME}"
+			bat "./gradlew.bat clean build"
 		}
 
 		stage('Sonar'){
