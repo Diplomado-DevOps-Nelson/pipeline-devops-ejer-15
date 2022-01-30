@@ -16,7 +16,7 @@ def call(){
 		}
 
 		parameters {
-			choice(name: 'buildTool', choices: ['gradle', 'maven'], description: 'Indicar herramienta de construcción')
+			choice(name: 'buildTool', choices: ['gradle', 'maven'], description: 'Indicar herramienta de construccion')
 		}
 
 		stages{
@@ -37,11 +37,11 @@ def call(){
 
 		post {
 			success {
-				slackSend color: 'good', message: "[${env.USER}][${env.JOB_NAME}][${params.buildTool}] Ejecucion exitosa."
+				slackSend color: 'good', message: "Nelson Agurto [${env.JOB_NAME}][${params.buildTool}] Ejecucion exitosa."
 			}
 
 			failure {
-				slackSend color: 'danger', message: "[${env.USER}][${env.JOB_NAME}][${params.buildTool}] Ejecucion fallida en stage ${STAGE}."
+				slackSend color: 'danger', message: "[Nelson Agurto [${env.JOB_NAME}][${params.buildTool}] Ejecucion fallida en stage ${STAGE}."
 				error "Ejecución fallida en stage ${STAGE}"
 			}
 		}

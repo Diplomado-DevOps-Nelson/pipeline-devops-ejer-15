@@ -20,6 +20,18 @@ def call(String pipelineType){
 		stage('Sonar'){
 			STAGE = env.STAGE_NAME
 			figlet "Stage: ${env.STAGE_NAME}"
+			
+			stage('SonarQube') {
+				steps {
+					script {
+						def scannerHome = tool 'sonar-scanner';
+						withSonarQubeEnv('sonarqube-server') {
+						  bat "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ejemplo-gradle -Dsonar.sources=src -Dsonar.java.binaries=build"
+						}
+					}
+				}
+			}
+						
 		}
 
 		stage('Run'){
