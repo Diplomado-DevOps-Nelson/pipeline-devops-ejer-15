@@ -33,7 +33,7 @@ def call(String pipelineType){
 		stage('run'){
 			STAGE = env.STAGE_NAME
 			figlet "Stage: ${env.STAGE_NAME}"
-			bat './gradlew bootRun &'
+			//bat './gradlew bootRun &'
 			//sleep 20
 		}
 
@@ -45,7 +45,24 @@ def call(String pipelineType){
 		stage('UploadSnapshotJar'){
 			STAGE = env.STAGE_NAME
 			figlet "Stage: ${env.STAGE_NAME}"
+		/*	nexusPublisher nexusInstanceId: 'nexus3-docker',
+			nexusRepositoryId: 'ejemplo-gradle',
+			packages: [
+				[
+					$class: 'MavenPackage',
+					mavenAssetList: [
+						[classifier: '', extension: '', filePath: 'build/libs/DevOpsUsach2020-0.0.1.jar']
+					],
+					mavenCoordinate: [
+						artifactId: 'DevOpsUsach2020',
+						groupId: 'com.devopsusach2020',
+						packaging: 'jar',
+						version: '0.0.1'
+					]
+				]
+			] */
 		}
+			
 	} else {
 		figlet 'Delivery Continuo'
 
