@@ -30,9 +30,11 @@ def call(String pipelineType){
 			}*/
 		}
 						
-		stage('Run'){
+		stage('run'){
 			STAGE = env.STAGE_NAME
 			figlet "Stage: ${env.STAGE_NAME}"
+			bat './gradlew bootRun &'
+			//sleep 20
 		}
 
 		stage('Test'){
