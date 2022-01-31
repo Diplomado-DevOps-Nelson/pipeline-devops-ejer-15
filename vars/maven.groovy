@@ -13,7 +13,7 @@ def call(String pipelineType){
 
     stage('Compile') {
      // STAGE = env.STAGE_NAME
-      bash 'mvnw.cmd clean compile -e'
+      bat 'mvnw.bat clean compile -e'
     }
 
     stage('Test') {
