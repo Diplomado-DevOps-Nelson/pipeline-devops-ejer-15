@@ -12,6 +12,7 @@ def call(){
 		
 		environment {
 			//sh 'env'
+			bat 'set'
 		    STAGE = ''
 		}
 
