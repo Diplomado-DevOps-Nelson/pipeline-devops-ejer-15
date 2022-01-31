@@ -13,25 +13,25 @@ def call(String pipelineType){
 
     stage('Compile') {
       STAGE = env.STAGE_NAME
-      bat './mvnw.bat clean compile -e'
+      bat 'mvnw.cmd clean compile -e'
     }
 
     stage('Test') {
       STAGE = env.STAGE_NAME
-      bat './mvnw.bat clean test -e'
+     // bat './mvnw.bat clean test -e'
     }
 
     stage('Jar') {
       STAGE = env.STAGE_NAME
-      bat './mvnw.bat clean package -e'
+     // bat './mvnw.bat clean package -e'
     }
   } else {
     figlet 'Delivery Continuo'
     
     stage('Run') {
       STAGE = env.STAGE_NAME
-      bat 'nohup bash mvnw.bat spring-boot:run &'
-      sleep 20
+     // bat 'nohup bash mvnw.bat spring-boot:run &'
+     // sleep 20
     }
     
    /* stage('TestApp') {
