@@ -12,7 +12,7 @@ def call(){
 		
 		environment {
 			//sh 'env'
-		    //STAGE = ''
+		    STAGE = ''
 		}
 
 		parameters {
