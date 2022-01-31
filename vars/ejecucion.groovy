@@ -36,7 +36,7 @@ def call(){
 			}
 		}
 
-		/* post {
+		 post {
 			success {
 				slackSend color: 'good', message: "Nelson Agurto [${env.JOB_NAME}][${params.buildTool}] Ejecucion exitosa."
 			}
@@ -45,7 +45,7 @@ def call(){
 				slackSend color: 'danger', message: "Nelson Agurto [${env.JOB_NAME}][${params.buildTool}] Ejecucion fallida en stage " //${STAGE}."
 				error "Ejecucion fallida en stage" // ${STAGE}"
 			}
-		}  */
+		}  
 	}
 
 }
